@@ -1,1 +1,4 @@
-hello
+sudo iptables -N ICMP
+sudo iptables -A INPUT -p icmp -j ICMP
+sudo iptables -A INPUT -p icmp --icmp-type 8 -m limit --limit 2/second -j ACCEPT
+sudo iptables -P INPUT DROP
